@@ -18,31 +18,31 @@
 
     background-color: $circle-background;
     border-radius: 50%;
-    .circle {
-        .mask,
-        .fill {
+    .radial-progress__circle {
+        .radial-progress__mask,
+        .radial-progress__fill {
             width: $circle-size;
             height: $circle-size;
             position: absolute;
             border-radius: 50%;
         }
-        .mask,
-        .fill {
+        .radial-progress__mask,
+        .radial-progress__fill {
             -webkit-backface-visibility: hidden;
             transition: -webkit-transform $transition-length;
             transition: -ms-transform $transition-length;
             transition: transform $transition-length;
             border-radius: 50%;
         }
-        .mask {
+        .radial-progress__mask {
             clip: rect(0px, $circle-size, $circle-size, $circle-size/2);
-            .fill {
+            .radial-progress__fill {
                 clip: rect(0px, $circle-size/2, $circle-size, 0px);
                 background-color: $circle-color;
             }
         }
     }
-    .inset {
+    .radial-progress__inset {
         width: $inset-size;
         height: $inset-size;
         position: absolute;
@@ -52,7 +52,7 @@
         background-color: $inset-color;
         border-radius: 50%;
         box-shadow: $shadow;
-        .percentage {
+        .radial-progress__percentage {
             height: $inset-size;
             width: $percentage-text-width;
             overflow: hidden;
@@ -69,7 +69,6 @@
             font-size: $percentage-font-size;
             font-family: "Open sans", Arial, sans-serif;
             color: $percentage-color;
-
         }
     }
 
@@ -78,14 +77,14 @@
     @while $i <= 100 {
 
         &[data-score="#{$i}"] {
-            .circle {
-                .mask,
-                .fill {
+            .radial-progress__circle {
+                .radial-progress__mask.radial-progress__mask--full,
+                .radial-progress__fill {
                     -webkit-transform: rotate($increment * $i);
                     -ms-transform: rotate($increment * $i);
                     transform: rotate($increment * $i);
                 }
-                .fill.fix {
+                .radial-progress__fill.fix {
                     -webkit-transform: rotate($increment * $i * 2);
                     -ms-transform: rotate($increment * $i * 2);
                     transform: rotate($increment * $i * 2);
